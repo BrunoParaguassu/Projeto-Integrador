@@ -1,113 +1,128 @@
-# PROJETO PIZZA-THRU
+# 🍕 Pizza-Thru
 
-**O projeto Integrador de nome Pizza-Thru, é um site de pizzaria onde o cliente pode retirar a própria pizza no local, site este que foi criado com todo um ecossistema de uma pizzaria onde temos login, feedback, status do pedido, pagamentos com cartão, pix e o nosso diferencial que é a função monte sua pizza !! que disponibiliza desde a grossura da massa ate uns adicionais a mais. Este proejeto foi criado com o intuito de demonstrar todo o conhecimento do grupo, utilizando de recursos aprendidos durante as aulas e mais além, demonstrando recursos extracurriculares para demonstração na hora de usar como portifolio e para apresentação para a certificação da DH (Digital House).**
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
+![Node](https://img.shields.io/badge/node-%3E%3D%2014.0.0-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 🚀 Começando 🚀
+> Sistema web de gerenciamento de pedidos para pizzaria com funcionalidades avançadas de personalização e pagamento online.
 
-Para começar o projeto é necessário que você tenha instalado todos os pacotes e também tenha conhecimento de javascript/handlebars/css/express e mysql
+## ✨ Funcionalidades
 
-### 📋 Pré-requisitos 📋
+- 🔐 **Autenticação Segura**
+  - Login e registro de usuários
+  - Proteção de rotas
+  - Gerenciamento de sessões
 
-Para rodar o projeto é necessário que você tenha instalado um aplicativo de criação de codigo (de preferencia o vscode), Node, o mySQL e algum navegador.
-Após isso é necessário ter os nossos pacotes instalados também.
+- 🛒 **Pedidos**
+  - Monte sua própria pizza
+  - Personalização de massa e ingredientes
+  - Acompanhamento em tempo real do status
+  - Histórico de pedidos
 
-### 🔧 Instalação 🔧
+- 💳 **Pagamentos**
+  - Integração com Mercado Pago
+  - Cartão de crédito
+  - PIX
+  - Gestão de transações
 
-Para instalar o nosso projeto, é necessario ter o node instalado, pois ele é necessario para a instalação de pacotes para utilização do projeto.
+- 👥 **Área Administrativa**
+  - Gestão de produtos
+  - Controle de pedidos
+  - Relatórios
+  - Gerenciamento de usuários
 
+## 🚀 Tecnologias
 
-Abra o seu terminal no vscode e utilize
-```
+### Backend
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MySQL](https://www.mysql.com/)
+- [Sequelize ORM](https://sequelize.org/)
+
+### Frontend
+- [Handlebars](https://handlebarsjs.com/)
+- [CSS3](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+- [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
+
+### Segurança
+- [bcryptjs](https://github.com/kelektiv/node.bcrypt.js)
+- [express-session](https://www.npmjs.com/package/express-session)
+- [cookie-session](https://expressjs.com/en/resources/middleware/cookie-session.html)
+
+## 📦 Instalação
+
+1. Clone o repositório:
+```bash
 git clone https://github.com/Pizza-Thru/Projeto-Integrador.git
+cd Projeto-Integrador
 ```
 
-Para instalar os nossos pacotes, é necessário utilizar o comando npm i dentro do terminal (de preferencia o terminal bash que é adquirido ao instalar o git bash)
-
-- **Instalação**
-
-```
+2. Instale as dependências:
+```bash
 npm install
 ```
 
-- **Pacotes utilizados no projeto**
+3. Configure as variáveis de ambiente:
+   - Copie o arquivo `.env.example` para `.env`
+   - Preencha as variáveis com suas configurações
 
-```
-Bcryptjs
-Cookie-parser
-Cookie-session
-Dotenv
-Express
-Express-flash
-Express-handlebars
-Express-session
-API-mercado pago
-Mysql2
-Nodemon
-Sequelize
-Session-file-store
-
-```
-- Após instalar os pacotes, utilize o nosso arquivo .env copy e crie um arquivo chamado .env e coloque seus dados de acordo com os termos pedidos
-```
-PORT = "porta que vai ser utilizada para o site" 
-DB_DATABASE = "banco de dados"
-DB_USER = "usuario do banco de dados"
-DB_PASSWORD = "senha do banco de dados"
-DB_HOST = "qual host do banco de dados"
-DB_DIALECT = "qual o programa de banco de dados"
-SESSION_NAME = "nome da session"
-EXSS_PASSAWORD = "senha secreta""
+```env
+PORT=3000
+DB_DATABASE=pizza_thru
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_HOST=localhost
+DB_DIALECT=mysql
+SESSION_NAME=pizza_thru_session
+EXSS_PASSWORD=sua_senha_secreta
+MERCADO_PAGO_ACCESS_TOKEN=seu_token
 ```
 
-## ⚙️ Iniciando projeto
+4. Inicie o servidor:
+```bash
+npm start
+```
 
- - **Para iniciar o projeto é necessário utilize o codigo abaixo no seu terminal.**
- 
- ```
- npm start
- ```
-Se tudo estiver correto, o programa ira rodar e criar um banco de dados dentro do seu mysql e irá startar o node.js
+## 🗄️ Estrutura do Banco de Dados
 
+### Tabelas Principais
+- `users`: Informações dos usuários
+- `products`: Catálogo de produtos
+- `orders`: Pedidos realizados
+- `order_items`: Itens de cada pedido
 
-## 🛠️ Construído com
+## 👥 Time
 
- - **Linguagens utilizadas** 
+| <img src="https://github.com/BrunoParaguassu.png" width="100px"/> | <img src="https://github.com/rekiell.png" width="100px"/> | <img src="https://github.com/PauloFreireRibeiro.png" width="100px"/> |
+|:---:|:---:|:---:|
+| [Bruno Paragassú](https://github.com/BrunoParaguassu) | [Gabriel Majewski](https://github.com/rekiell) | [Paulo Freire](https://github.com/PauloFreireRibeiro) |
+| Backend | Frontend | Full Stack |
 
-<div> <img src='https://img.shields.io/badge/Handlebars.js-f0772b?style=for-the-badge&logo=handlebarsdotjs&logoColor=black'/> </div>
-<div> <img src='https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white'/> </div>     
-<div> <img src='https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black'/> </div>
-<div> <img src='https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white'/> </div>
+| <img src="https://github.com/AyllaDuarte.png" width="100px"/> | <img src="https://github.com/GuilhermeVenturim.png" width="100px"/> | <img src="https://github.com/fflaviacastro.png" width="100px"/> |
+|:---:|:---:|:---:|
+| [Aylla Duarte](https://github.com/AyllaDuarte) | [Guilherme Venturim](https://github.com/GuilhermeVenturim) | [Flavia Castro](https://github.com/fflaviacastro) |
+| Frontend | Backend | UI/UX |
 
+## 📝 Licença
 
-- **Tecnologias utilizadas**
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-* [Bcryptjs](https://github.com/kelektiv/node.bcrypt.js) - Encriptador de senhas.
-* [Cookie-session](https://expressjs.com/en/resources/middleware/cookie-session.html) - Recurso de middleware  usado para criar sessões.
-* [Cookie-parser](https://expressjs.com/en/resources/middleware/cookie-parser.html) - Recurso de middleware usado para cookies.
-* [Dotenv](https://www.npmjs.com/package/dotenv) - Maneira mais fácil de carregar variáveis de configuração personalizadas que o seu aplicativo precisará ter.
-* [Express](https://expressjs.com/) - Web Framework utilizado.
-* [Express-flash](https://www.npmjs.com/package/express-flash) - Extensão do express utilizada para definir uma mensagem flash e renderizar sem um request.
-* [Express-handlebars](https://www.npmjs.com/package/express-handlebars) - Extensão utilizado para usar handlebars juntamente com o express.
-* [Express-session](https://www.npmjs.com/package/express-session) - Middleware do express.
-* [API mercado pago](https://www.mercadopago.com.br/developers/pt) - Api utilizada para o sistema de pagamento.
-* [Mysql2](https://www.npmjs.com/package/mysql2) - Client do mysql focado em alta performance no nodejs.
-* [Nodemon](https://nodemon.io/) - Utilizado para restartar automaticamente o start após qualquer modificação nos arquivos.
-* [Sequelize](https://sequelize.org/) - Um ORM para nodejs que facilita a comunicação com database (no nosso caso o mySQL).
-* [Session-file-store](https://www.npmjs.com/package/session-file-store) - Serve para armazenar arquivos na session para o express.
+## 🤝 Contribuições
 
-## ✒️ Autores
+Contribuições, issues e pedidos de features são bem-vindos!
+Sinta-se à vontade para verificar a [página de issues](https://github.com/Pizza-Thru/Projeto-Integrador/issues).
 
-* **Desenvolvedor** -  [Bruno Paragassú Sousa](https://github.com/BrunoParaguassu)
-* **Desenvolvedor** -  [Gabriel Fernandes Barreto Muniz Majewski](https://github.com/rekiell/)
-* **Desenvolvedor** -  [Paulo Freire Ribeiro](https://github.com/PauloFreireRibeiro)
-* **Desenvolvedora** -  [Aylla Duarte](https://github.com/AyllaDuarte)
-* **Desenvolvedor** -  [Guilherme Venturim](https://github.com/GuilhermeVenturim)
-* **Desenvolvedora** -  [Flavia Castro](https://github.com/fflaviacastro)
-* **Redatora** -  [Johanna Ramos](https://github.com/hannaramosz)
-## 🎁 Expressões de gratidão
+## 📫 Contato
 
-* Agradecimento a todos dessa equipe que foram incriveis ao longo do projeto;
-* Agradecimento a Digital House pela realização do projeto;
-* Agradecimento a todos que nos apoiaram nessa grande caminhada seja pais, amigos, esposa, namorada;
+Para sugestões, dúvidas ou feedbacks, por favor entre em contato através de:
+- Email: pizzathru@email.com
+- Issues: [GitHub Issues](https://github.com/Pizza-Thru/Projeto-Integrador/issues)
 
-- **Um agradecimento especial de toda a equipe, pelos otimos professores, Willian e Awnar que nos ensinou e nos auxilou em varios momentos, mesmo fora dos momentos de aula, sempre esteve lá disposto as nos ajudar e a nos ensinar, sem duvidas um dos maiores professores que existe, que vai ser levado para fora das aulas e do curso como um grande amigo por todos os momentos passados dentro desses 6 meses.**
+## 🙏 Agradecimentos
+
+- À Digital House pela oportunidade e suporte durante o desenvolvimento
+- Aos professores Willian e Awnar pelo excelente trabalho e dedicação
+- A todos os familiares e amigos que nos apoiaram nesta jornada
+
+---
+Feito com ❤️ pelo time Pizza-Thru

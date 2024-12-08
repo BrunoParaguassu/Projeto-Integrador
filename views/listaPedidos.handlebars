@@ -1,52 +1,32 @@
-<main>
-  <div class="status-pedido">
-    <section class="section-titulo">
-      <h1 class="h1-titulo">Resumo de Pedidos</h1>
-    </section> 
-    <section class="section-dados">
-      <form class="form-dados" action="/statusPagamentos" method="post">
-        <div class="input-group-1A">
-          <label class="form-dados__label">Nº do Pedido</label>
-          <input class="form-dados__input" type="text" name="numeroPedido">
-        </div>
-        <div class="input-group-5A">
-          <label class="form-dados__label">Status do Pagamento</label>
-          <select class="form-dados__input" name="statusDoPagamento">
-            <option value="Pedido em aberto">Pedido em Aberto</option>
-            <option value="Pagamento Aprovado">Pagamento Aprovado</option>
-            <option value="Pedido Pronto">Pedido Pronto</option>
-            <option value="Finalizado">Finalizado</option>
-          </select>
-          </div> 
-          <div class="button-group-A">
-            <button class="formulario__btn">Atualizar</button>
-          </div> 
-      </form>
-      <section class="form-dados">
-        <div class="andamentoPedidos">
-              <table>
-                <tr> 
-                  <th>Nº Pedido </th>
-                  <th>Status do Pagamento</th>
-                  <th>Consultar pedido</th>
-                  <th>Excluir</th>
-                  </tr>
-                {{#each listaPedidos}}
-                  <tr>
-                <td>{{this.id_order}}</td>
-                <td>{{this.status_order}}</td>
-                <td class="btn--listaPedidos"><a  href="/admin/ordem-do-pedido/{{this.id_order}}">Consultar</a></td>
-                <td><a href="/del-pedido/{{this.id_order}}"><button><i><span class="material-symbols-outlined">
-                delete
-               </span></i></button></a></td>
-                  </tr>
-                {{/each}}
-              </table>
-        </div>
-      </section>
-      </div> 
-          <div class="cadastro--btn-back">
-          <a href="#"> Voltar </a>
-      </div> 
-</main> 
-
+<main class='main'>
+  <section class='pedidos'>
+    <h2>Lista de Pedidos</h2>
+    {{#if orders}}
+      <div class='pedidos__lista'>
+        {{#each orders}}
+          <div class='pedido__item'>
+            <h3>Pedido #{{this.id}}</h3>
+            <p>Cliente: {{this.user.name}}</p>
+            <p>Status: {{this.status}}</p>
+            <p>Data: {{this.createdAt}}</p>
+            <div class='pedido__produtos'>
+              <h4>Produtos:</h4>
+              {{#each this.products}}
+                <div class='produto__item'>
+                  <p>{{this.name_prod}} - R$ {{this.price_prod}}</p>
+                  <p>Quantidade: {{this.OrderProduct.quantity}}</p>
+                </div>
+              {{/each}}
+            </div>
+            <p class='pedido__total'>Total: R$ {{this.total}}</p>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class='pedidos__vazio'>Nenhum pedido encontrado.</p>
+    {{/if}}
+  </section>
+  <div class='cadastro--btn-back'>
+    <a href='#'>Voltar</a>
+  </div>
+</main>

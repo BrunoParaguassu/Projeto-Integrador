@@ -1,24 +1,30 @@
 <main>
-  <div class="redefinicao-senha">
-    <section class="section-titulo">
-      <h1 class="h1-titulo">Redefinir senha</h1>
+  <div class='redefinicao-senha'>
+    <section class='section-titulo'>
+      <h1 class='h1-titulo'>Redefinir senha</h1>
     </section>
-    <form class="section-email" method="post" action="/recuperarEmail">
-      <div class="email-group">
-        <label class="label-email" for="email">Endereço de e-mail</label>
-        <input  class="input-email" type="email" name="recuperar__email" required placeholder="seuemail@email.com "> 
+    <form class='section-email' method='post' action='/recuperarEmail'>
+      <div class='email-group'>
+        <label class='label-email' for='email'>Endereço de e-mail</label>
+        <input
+          class='input-email'
+          type='email'
+          name='recuperar__email'
+          required
+          placeholder='seuemail@email.com '
+        />
       </div>
       {{#if messages.emailError}}
-      <span class="message loginError">
-        {{messages.emailError}}
-      </span>
-      {{/if}}  
-      <div class="button-group">
-        <button class="formulario__btn">Redefinir senha</button>
-      </div> 
-    </form>    
-  </div>  
-   <div class="cadastro--btn-back">
-      <a href="#"> Voltar </a>
-    </div>
-</main> 
+        <span class='message loginError'>
+          {{messages.emailError}}
+        </span>
+      {{/if}}
+      <div class='button-group'>
+        <button class='formulario__btn'>Redefinir senha</button>
+      </div>
+    </form>
+  </div>
+  <div class='cadastro--btn-back'>
+    <a href='#'> Voltar </a>
+  </div>
+</main>

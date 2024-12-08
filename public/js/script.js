@@ -1,77 +1,101 @@
-// imprimindo comprovante de pedido
+// Função para imprimir pedido
+function imprimirPedido() {
+  const conteudoPedido = document.getElementById('orderDetails');
+  if (!conteudoPedido) return;
 
-const printOrder = document.querySelector(".print").onclick = function () {
-    newWindow = window.open( `/pedido-realizado/${this.id}`, "Print-Window", "width=600,height=600");
-    newWindow.onload = function () {
-        newWindow.print();
-    }
-}
-
-// Criando barras de progresso dinamicamente
-window.onload = function update() {
-    let element = document.querySelector(".myprogressBar");
-    let width = 1;
-    let identity = setInterval(scene, 10);
-
-    let status = document.getElementById('statusOrder').getAttribute('data-id');
-
-    function scene() {
-        if (status == "Pagamento Aprovado" || status == "Preparando Pedido") {
-            document.getElementById("statusA").style.opacity = "1";
-            document.getElementById("statusA").style.border = "#FCBF49 5px solid";
-            document.getElementById("textStatusA").textContent = "PAGAMENTO APROVADO";
-            element.style.width = 0 + '%'
-        }
-        else if (status == "Pedido Pronto") {
-            document.getElementById("textStatusA").textContent = "PAGAMENTO APROVADO";
-            document.getElementById("statusA").style.opacity = "1";
-            document.getElementById("statusA").style.border = "#FCBF49 5px solid";
-            document.getElementById("textStatusB").textContent = "PEDIDO PRONTO";
-            document.getElementById("statusB").style.opacity = "1";
-            document.getElementById("statusB").style.border = "#FCBF49 5px solid";
-
-            element.style.width = 50 + '%'
-        }
-        else if (status == "Finalizado") {
-            document.getElementById("textStatusA").textContent = "PAGAMENTO APROVADO";
-            document.getElementById("statusA").style.border = "#FCBF49 5px solid";
-            document.getElementById("statusA").style.opacity = "1";
-            document.getElementById("textStatusB").textContent = "PEDIDO PRONTO";
-            document.getElementById("statusB").style.opacity = "1";
-            document.getElementById("statusB").style.border = "#FCBF49 5px solid";
-            document.getElementById("textStatusC").textContent = "PEDIDO ENTREGUE";
-            document.getElementById("statusC").style.opacity = "1";
-            document.getElementById("statusC").style.border = "#FCBF49 5px solid";
-            element.style.width = 100 + '%'
-        }
-        else {
-            document.getElementById("textStatusA").style.opacity = "0.5";
-            document.getElementById("textStatusB").style.opacity = "0.5";
-            document.getElementById("textStatusC").style.opacity = "0.5";
-            element.style.width = 0 + '%'
-        }
-    }
-}
-
-// Cadastrando variavel
-
-function atualizouSelect(){
-    
-    let varOption = document.querySelector('select[name="varOption"]');
-    let optionValue = varOption.options[varOption.selectedIndex].value;
-
-
-  if (optionValue == "varOff") {
-    document.getElementById("variation_box").style.display = "none";
-    document.getElementById("variation_box1").style.display = "none";
-    document.getElementById("variation_box2").style.display = "none";
-  } else if (optionValue == "varOn") {
-    document.getElementById("variation_box").style.display = "grid";
-    document.getElementById("variation_box1").style.display = "grid";
-    document.getElementById("variation_box2").style.display = "grid";
+  const printWindow = window.open('', '_blank');
+  if (!printWindow) {
+    alert('Por favor, permita popups para imprimir o pedido.');
+    return;
   }
 
-console.log(optionValue)
-  }
-  
-  atualizouSelect()
+  const html = `
+    <html>
+      <head>
+        <title>Pedido</title>
+        <style>
+          body { font-family: Arial, sans-serif; }
+          .pedido { padding: 20px; }
+          .titulo { font-size: 24px; margin-bottom: 20px; }
+          .item { margin: 10px 0; }
+          .total { margin-top: 20px; font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <div class="pedido">
+          ${conteudoPedido.innerHTML}
+        </div>
+      </body>
+    </html>
+  `;
+
+  printWindow.document.write(html);
+  printWindow.document.close();
+  printWindow.print();
+}
+
+// Função para validar formulário
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('userForm');
+  if (!form) return;
+
+  const campos = {
+    nome: {
+      elemento: document.getElementById('name'),
+      erro: document.getElementById('nameError'),
+      validacao: (valor) => valor.length >= 3,
+      mensagem: 'O nome deve ter pelo menos 3 caracteres'
+    },
+    email: {
+      elemento: document.getElementById('email'),
+      erro: document.getElementById('emailError'),
+      validacao: (valor) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor),
+      mensagem: 'Digite um email válido'
+    },
+    senha: {
+      elemento: document.getElementById('password'),
+      erro: document.getElementById('passwordError'),
+      validacao: (valor) => valor.length >= 6,
+      mensagem: 'A senha deve ter pelo menos 6 caracteres'
+    },
+    confirmarSenha: {
+      elemento: document.getElementById('confirmPassword'),
+      erro: document.getElementById('confirmPasswordError'),
+      validacao: (valor) => valor === document.getElementById('password').value,
+      mensagem: 'As senhas não coincidem'
+    }
+  };
+
+  // Limpar mensagens de erro quando o usuário digita
+  Object.values(campos).forEach(campo => {
+    if (campo.elemento) {
+      campo.elemento.addEventListener('input', () => {
+        if (campo.erro) {
+          campo.erro.textContent = '';
+        }
+      });
+    }
+  });
+
+  form.addEventListener('submit', function(event) {
+    let temErro = false;
+
+    Object.entries(campos).forEach(([nome, campo]) => {
+      if (campo.elemento && campo.erro) {
+        const valor = campo.elemento.value.trim();
+        
+        if (!valor || !campo.validacao(valor)) {
+          campo.erro.textContent = campo.mensagem;
+          temErro = true;
+        }
+      }
+    });
+
+    if (temErro) {
+      event.preventDefault();
+    }
+  });
+});
+
+// Exportar funções para uso global
+window.imprimirPedido = imprimirPedido;

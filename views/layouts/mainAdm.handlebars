@@ -1,62 +1,77 @@
-<html lang="pt-BR">
+<html lang='pt-BR'>
   <head>
-       <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <link rel="shortcut icon" href="/upload/img/favicon.ico" type="image/x-icon">
+    <meta charset='UTF-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
-      rel="stylesheet"
+      rel='shortcut icon'
+      href='/upload/img/favicon.ico'
+      type='image/x-icon'
     />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <script defer src="/js/menuDropDown.js"></script>
-     <script defer src="/js/script.js"></script>
-    <script defer src="/public/js/verificarBotao.js"></script>
+    <link
+      href='https://fonts.googleapis.com/css2?family=Inter&display=swap'
+      rel='stylesheet'
+    />
+    <link
+      href='https://fonts.googleapis.com/icon?family=Material+Icons'
+      rel='stylesheet'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0'
+    />
+    <link rel='stylesheet' href='/css/style.css' />
+    <script defer src='/js/menuDropDown.js'></script>
+    <script defer src='/js/script.js'></script>
+    <script defer src='/public/js/verificarBotao.js'></script>
     <title>Admin Pizza Thru</title>
   </head>
-  <body class="l-body_admin">
-    {{#if session.userid }}
-    <header class="menu-principal__header">
-      <div class="conteiner">
-        <div class="menu-principal-conteiner__logo__adm">
-          <a href="/" class="menu-principal__logo">Pizza Thru</a>
+  <body class='l-body_admin'>
+    {{#if session.userid}}
+      <header class='menu-principal__header'>
+        <div class='conteiner'>
+          <div class='menu-principal-conteiner__logo__adm'>
+            <a href='/' class='menu-principal__logo'>Pizza Thru</a>
+          </div>
+          <div class='menu-principal-conteiner__adm__login'>
+            <a href='/logoutAdmin' class='menu-principal-lista__login'><img
+                src='/upload/img/icone-logout.png'
+                alt='icone de logout'
+              /></a>
+          </div>
+          <nav class='nav-principal__header'>
+            <button
+              class='menu-principal__btn'
+              aria-label='Abrir Menu'
+              aria-haspopup='true'
+              aria-controls='menu-principal__links'
+              aria-expanded='false'
+            >
+              <span class='hamburger'></span>
+            </button>
+            <ul
+              class='menu-principal__links'
+              id='menu-principal__links'
+              role='menu'
+            >
+              <li class='menu-principal-segunda__lista'><a
+                  href='/cadastroProduto'
+                >CRIAR PRODUTO</a></li>
+              <li class='menu-principal-segunda__lista'><a
+                  href='/admin/listaPedidos'
+                >LISTA DE PEDIDOS</a></li>
+              <li class='menu-principal-segunda__lista'><a
+                  href='/produtosLista'
+                >LISTA DE PRODUTOS</a></li>
+            </ul>
+          </nav>
         </div>
-        <div class="menu-principal-conteiner__adm__login">
-          <a href="/logoutAdmin" class="menu-principal-lista__login"><img src="/upload/img/icone-logout.png" alt="icone de logout"></a>
-        </div>
-        <nav class="nav-principal__header">
-          <button
-            class="menu-principal__btn"
-            aria-label="Abrir Menu"
-            aria-haspopup="true"
-            aria-controls="menu-principal__links"
-            aria-expanded="false"
-          >
-            <span class="hamburger"></span>
-          </button>
-          <ul
-            class="menu-principal__links"
-            id="menu-principal__links"
-            role="menu"
-          >
-            <li class="menu-principal-segunda__lista"><a
-                href="/cadastroProduto"
-              >CRIAR PRODUTO</a></li>
-            <li class="menu-principal-segunda__lista"><a
-                href="/admin/listaPedidos"
-              >LISTA DE PEDIDOS</a></li>
-            <li class="menu-principal-segunda__lista"><a
-                href="/produtosLista"
-              >LISTA DE PRODUTOS</a></li>  
-          </ul>
-        </nav>
-      </div>
-    </header>
-     {{/if}}
+      </header>
+    {{/if}}
     <!--Fim do cabeçalho-->
     {{{body}}}
 

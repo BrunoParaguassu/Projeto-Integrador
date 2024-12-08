@@ -1,41 +1,45 @@
-<main class="cadastro">
-  <header class="cadastro__titulo">
-    <h1 class="cadastro-main__title"> Lista de produtos </h1>
-  </header>
-  <div class="cadastro__form">
-    <section>
-      <div class="listaDePedidos">
-            <table>
-               <tr> 
-                <th>Id </th>
-                <th>Nome </th>
-                <th>Quantidade</th>
-                <th>Preço</th>
-                <th>Descrição</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-                </tr>
-              {{#each productList}}
-                <tr>
-               <td>{{id_prod}}</td>
-               <td>{{name_prod}}</td>
-               <td>{{stock_prod}}</td>
-               <td>R${{price_prod}}</td>
-               <td>{{description_prod}}</td>
-               <td><a href="/editar-produto/{{id_prod}}"><button><i><span class="material-symbols-outlined">
-               edit
-               </span></i></button></a></td>
-               <td><a href="/del-produto/{{id_prod}}"><button><i><span class="material-symbols-outlined">
-                delete
-               </span></i></button></a></td>
-                </tr>
-              {{/each}}
-            </table>
+<main class='main'>
+  <section class='produtos'>
+    <h2>Lista de Produtos</h2>
+    {{#if products}}
+      <div class='produtos__lista'>
+        {{#each products}}
+          <div class='produto__item'>
+            <img
+              src='/uploads/{{this.image_prod}}'
+              alt='{{this.name_prod}}'
+              class='produto__imagem'
+            />
+            <div class='produto__info'>
+              <h3>{{this.name_prod}}</h3>
+              <p>{{this.description_prod}}</p>
+              <p class='produto__categoria'>{{this.category_prod}}</p>
+              <p class='produto__preco'>R$ {{this.price_prod}}</p>
+              <div class='produto__acoes'>
+                <a
+                  href='/admin/editar-produto/{{this.id}}'
+                  class='btn btn-editar'
+                >Editar</a>
+                <form
+                  action='/admin/deletar-produto/{{this.id}}'
+                  method='POST'
+                  class='form-deletar'
+                >
+                  <button type='submit' class='btn btn-deletar'>Deletar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {{/each}}
       </div>
-    </section>
-  </div>
-    <div class="cadastro--btn-back">
-      <a href="/cadastroProduto"> Voltar </a>
+    {{else}}
+      <p class='produtos__vazio'>Nenhum produto cadastrado.</p>
+    {{/if}}
+    <div class='produtos__novo'>
+      <a href='/admin/cadastro-produto' class='btn btn-novo'>Novo Produto</a>
     </div>
+  </section>
+  <div class='cadastro--btn-back'>
+    <a href='/admin'>Voltar</a>
   </div>
 </main>

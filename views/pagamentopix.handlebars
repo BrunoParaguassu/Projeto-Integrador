@@ -1,58 +1,56 @@
 <body>
-  <div class="conteiner-main__img">
-    <img src="/upload/img/banner-Principal.png" alt="Monte ja sua Pizza" />
+  <div class='conteiner-main__img'>
+    <img src='/upload/img/banner-Principal.png' alt='Monte ja sua Pizza' />
   </div>
   <section>
-    <h1 class="header-main__title">Pagamento Pix</h1>
+    <h1 class='header-main__title'>Pagamento Pix</h1>
   </section>
-  <main>
-
-      <form class="main__formulario" id="form-checkout" action="/pagamentopix" method="POST">
-      <div class="formulario">
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="id_pedido">ID do pedido</label>
-            <input id="id_pedido" name="id_pedido" readonly value="{{pagamentopix.id_order}}"/>
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="transaction_amount">Valor do pedido</label>
-            <input id="transaction_amount" name="transaction_amount" type="number" readonly value="{{pagamentopix.total_order}}"/>
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="payerFirstName">Nome</label>
-            <input id="form-checkout__payerFirstName" name="payerFirstName" type="text"/>
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="payerLastName">Sobrenome</label>
-            <input id="form-checkout__payerLastName" name="payerLastName" type="text"/>
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="email">E-mail</label>
-            <input id="form-checkout__email" name="email" type="text" />
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="identificationType">Tipo de documento</label>
-            <select id="form-checkout__identificationType" name="identificationType" type="text">
-            </select>
-          </div>
-          <div class="conteiner__formulario">
-            <label class="formulario__label" for="identificationNumber">Número do
-              documento</label>
-            <input id="form-checkout__identificationNumber" name="identificationNumber" type="text"/>
-          </div>
-          <div class="conteiner__formulario">
-            <input
-              type="hidden"
-              name="description"
-              id="description"
-              value="Pizza tal"
-            />
-          <button class="formulario__pagamento" type="submit">Pagar</button>
-          </div>
+  <main class='main'>
+    <div class='pagamento'>
+      <h2>Pagamento via PIX</h2>
+      <form action='/processar-pix' method='POST' class='formulario'>
+        <div class='formulario__box'>
+          <label for='nome'>Nome:</label>
+          <input
+            type='text'
+            name='nome'
+            id='nome'
+            placeholder='Nome completo'
+            required
+          />
+        </div>
+        <div class='formulario__box'>
+          <label for='cpf'>CPF:</label>
+          <input
+            type='text'
+            name='cpf'
+            id='cpf'
+            placeholder='XXX.XXX.XXX-XX'
+            required
+          />
+        </div>
+        <div class='formulario__box'>
+          <label for='valor'>Valor:</label>
+          <input
+            type='number'
+            name='valor'
+            id='valor'
+            step='0.01'
+            value='{{total}}'
+            readonly
+          />
+        </div>
+        <div class='formulario__box'>
+          <button type='submit' class='formulario__pagamento'>Gerar QR Code</button>
+        </div>
       </form>
     </div>
+    <div class='cadastro--btn-back'>
+      <a href='/finalizarCompra'>Voltar</a>
+    </div>
   </main>
-  <script defer src="https://sdk.mercadopago.com/js/v2">
-    const mp = new MercadoPago("TEST-628d8c33-9dfb-442e-b0d7-7adec5fd94f2");
+  <script defer src='https://sdk.mercadopago.com/js/v2'></script>
+  <script>
+    const mp = new MercadoPago('{{mercadoPagoPublicKey}}');
   </script>
-  <script defer src="/js/requisitarDocumentos.js"></script>
 </body>

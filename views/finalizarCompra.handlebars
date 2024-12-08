@@ -1,52 +1,62 @@
 <main>
-  <div class="conteiner-main__img">
+  <div class='conteiner-main__img'>
     <img
-      src="/upload/img/Banner-monte-sua-pizza.png"
-      alt="Monte ja sua Pizza"
+      src='/upload/img/Banner-monte-sua-pizza.png'
+      alt='Monte ja sua Pizza'
     />
   </div>
-  <header class="header__main">
-    <h1 class="header__title">Finalizar a Compra</h1>
+  <header class='header__main'>
+    <h1 class='header__title'>Finalizar a Compra</h1>
   </header>
-  <section class="formulario">
-    <section class="resumo__pedido">
-      <h2 class="header__title">Resumo do Pedido</h2>
-      <div class="formulario__section">
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Número do Pedido</p>
-          <span class="itensDoPedido">{{orders.id_order}}</span>
+  <section class='formulario'>
+    <section class='resumo__pedido'>
+      <h2 class='header__title'>Resumo do Pedido</h2>
+      <div class='formulario__section'>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Número do Pedido</p>
+          <span class='itensDoPedido'>{{orders.id_order}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Quantidade de Pedaços</p>
-          <span class="itensDoPedido">{{orders.qnt_slice}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Quantidade de Pedaços</p>
+          <span class='itensDoPedido'>{{orders.qnt_slice}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Sabores</p>
-          <span class="itensDoPedido">{{orders.qnt_flavor}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Sabores</p>
+          <span class='itensDoPedido'>{{orders.qnt_flavor}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Espessura da Massa</p>
-          <span class="itensDoPedido">{{orders.type_pasta}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Espessura da Massa</p>
+          <span class='itensDoPedido'>{{orders.type_pasta}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Tipo de Borda</p>
-          <span class="itensDoPedido">{{orders.type_border}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Tipo de Borda</p>
+          <span class='itensDoPedido'>{{orders.type_border}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Adicionais</p>
-          <span class="itensDoPedido">{{orders.item_add_1}}  &  {{orders.item_add_2}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Adicionais</p>
+          <span class='itensDoPedido'>{{orders.item_add_1}}
+            &
+            {{orders.item_add_2}}</span>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">Observações</p>
-          <div class="observacao" cols="30" rows="5">{{orders.obs}}</div>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>Observações</p>
+          <div class='observacao' cols='30' rows='5'>{{orders.obs}}</div>
         </div>
-        <div class="mini-conteiner__label__input">
-          <p class="formulario__label">TOTAL</p>
-          <span class="itensDoPedido">{{orders.total_order}}</span>
+        <div class='mini-conteiner__label__input'>
+          <p class='formulario__label'>TOTAL</p>
+          <span class='itensDoPedido'>{{orders.total_order}}</span>
         </div>
-        <h2 class="header__title">Formas de Pagamento</h2>
-        <a href="/pagamentopix/{{orders.id_order}}"><input type="submit" class="formulario__btn" value="Pagamento PIX" /></a>
-        <a href="/pagamentocredito/{{orders.id_order}}"><input type="submit" class="formulario__btn" value="Pagamento Crédito" /></a>
+        <h2 class='header__title'>Formas de Pagamento</h2>
+        <a href='/pagamentopix/{{orders.id_order}}'><input
+            type='submit'
+            class='formulario__btn'
+            value='Pagamento PIX'
+          /></a>
+        <a href='/pagamentocredito/{{orders.id_order}}'><input
+            type='submit'
+            class='formulario__btn'
+            value='Pagamento Crédito'
+          /></a>
       </div>
     </section>
   </section>

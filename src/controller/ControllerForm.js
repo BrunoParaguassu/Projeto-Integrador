@@ -1,14 +1,22 @@
-const {product, franqueado, evaluation, bank, order, user} = require("../models/models")
-const mercadopago = require ("mercadopago");
-const { json, FLOAT } = require("sequelize" );
-mercadopago.configurations.setAccessToken ("TEST-3135694526464578-040222-f91f40177f41b05d51570be97d91f72b-209999602");
+const {
+  product,
+  franqueado,
+  evaluation,
+  bank,
+  order,
+  user,
+} = require('../models/models');
+const mercadopago = require('mercadopago');
+const { json, FLOAT } = require('sequelize');
+mercadopago.configurations.setAccessToken(
+  'TEST-3135694526464578-040222-f91f40177f41b05d51570be97d91f72b-209999602'
+);
 mercadopago.configure({
-  access_token: 'TEST-3135694526464578-040222-f91f40177f41b05d51570be97d91f72b-209999602'
+  access_token:
+    'TEST-3135694526464578-040222-f91f40177f41b05d51570be97d91f72b-209999602',
 });
 module.exports = class Form {
-
   static async sejaFranqueado(req, res) {
-
     const newFranqueado = {
       franqueado_name: req.body.franqueado_name,
       franqueado_email: req.body.franqueado_email,
@@ -19,12 +27,11 @@ module.exports = class Form {
     };
 
     await franqueado.create(newFranqueado);
-    res.redirect("/sejaFranqueado");
+    res.redirect('/sejaFranqueado');
   }
 
   static async realizePedido(req, res) {
-    
-      const newOrder = {
+    const newOrder = {
       qnt_slice: req.body.select__pedacos,
       qnt_flavor: req.body.select__sabores,
       flavor_1: req.body.select__sabor1,
@@ -36,25 +43,23 @@ module.exports = class Form {
       obs: req.body.Observacao,
       total_order: req.body.Subtotal,
       user_id: req.session.userid,
-      status_order: "Pedido em aberto",
+      status_order: 'Pedido em aberto',
     };
-    
+
     console.log(newOrder);
     await order.create(newOrder);
     const lastId = await order.findOne({
-      raw:true,
-      order: [['id_order', 'DESC']]
+      raw: true,
+      order: [['id_order', 'DESC']],
     });
     res.redirect(`/finalizarCompra/${lastId.id_order}`);
   }
 
   static async admCreate(req, res) {
-     
-    
     const newProduct = {
       name_prod: req.body.name_prod,
       category_prod: req.body.category_prod,
-      description_prod: req.body.description_prod,  
+      description_prod: req.body.description_prod,
       stock_prod: req.body.stock_prod,
       image_prod: req.body.image_prod,
       price_prod: req.body.price_prod,
@@ -64,97 +69,97 @@ module.exports = class Form {
     };
 
     await product.create(newProduct);
-    res.redirect("/produtosLista");
-    
+    res.redirect('/produtosLista');
   }
 
-    static async feedbackAvaliacao(req, res) {
-      const userName  = await user.findOne({
-        raw:true,
-        id_user:req.session.userid
-        
+  static async feedbackAvaliacao(req, res) {
+    const userName = await user.findOne({
+      raw: true,
+      id_user: req.session.userid,
+    });
+    const newAvaliacao = {
+      name_feed: userName.user_name,
+      note: req.body.star__nota,
+      comment: req.body.feedback__comentario,
+      user_id: req.session.userid,
+    };
+    await evaluation.create(newAvaliacao);
+
+    res.redirect('/feedback');
+  }
+
+  static async editarProduto(req, res) {
+    const editProduct = {
+      id_prod: req.body.id_prod,
+      name_prod: req.body.name_prod,
+      category_prod: req.body.category_prod,
+      description_prod: req.body.description_prod,
+      stock_prod: req.body.stock_prod,
+      price_prod: req.body.price_prod,
+    };
+
+    await product
+      .update(editProduct, {
+        where: { id_prod: req.body.id_prod },
+      })
+      .then(() => {
+        res.redirect('/produtosLista');
+      })
+      .catch((e) => {
+        res.send('Produto não conseguiu ser editado!');
       });
-      const newAvaliacao = {
-        name_feed:userName.user_name,
-        note: req.body.star__nota,
-        comment: req.body.feedback__comentario,
-        user_id: req.session.userid,
-      };
-      await evaluation.create(newAvaliacao);
-  
-      res.redirect("/feedback");
-    }
+  }
 
-      static async editarProduto (req, res) { 
-        const editProduct = {
-          id_prod: req.body.id_prod,
-          name_prod: req.body.name_prod,
-          category_prod: req.body.category_prod,
-          description_prod: req.body.description_prod,  
-          stock_prod: req.body.stock_prod,
-          price_prod: req.body.price_prod,
-        };
-    
-        await product.update(editProduct, {
-          where: {'id_prod' : req.body.id_prod}
-        }).then (()=> {
-          res.redirect("/produtosLista")
-        }).catch ((e)=> {res.send ("Produto não conseguiu ser editado!")})
+  static async PagamentoPix(req, res) {
+    var payment_data = {
+      transaction_amount: Number(req.body.transaction_amount),
+      description: req.body.description,
+      payment_method_id: 'pix',
+      payer: {
+        email: req.body.email,
+        first_name: req.body.payerFirstName,
+        last_name: req.body.payerLastName,
+        identification: {
+          type: req.body.identificationType,
+          number: req.body.identificationNumber,
+        },
+      },
+    };
+    mercadopago.payment.create(payment_data).then((data) => {
+      let linkPagamento =
+        data.body.point_of_interaction.transaction_data.ticket_url;
+      res.redirect(linkPagamento);
+    });
+  }
+  static async pagamentoCredito(req, res) {
+    var payment_data = {
+      transaction_amount: Number(req.body.transactionAmount),
+      token: req.body.token,
+      installments: Number(req.body.installments),
+      payment_method_id: req.body.paymentMethodId,
+      payer: {
+        email: req.body.email,
+      },
+    };
+
+    mercadopago.payment.create(payment_data).then((data) => {
+      res.redirect(301, '/statusPedido');
+    });
+  }
+
+  static async statusPagamento(req, res) {
+    const status = req.body.statusDoPagamento;
+    const num = req.body.numeroPedido;
+    console.log(num, status);
+
+    await order.update(
+      { status_order: status },
+      {
+        where: {
+          id_order: num,
+        },
       }
-    
-      static async PagamentoPix (req, res){
-        var payment_data = {
-          transaction_amount: Number(req.body.transaction_amount),
-          description: req.body.description,
-          payment_method_id: 'pix',
-                payer: {
-                      email: req.body.email,
-                      first_name: req.body.payerFirstName,
-                      last_name: req.body.payerLastName,
-                            identification: {
-                                            type: req.body.identificationType,
-                                            number: req.body.identificationNumber
-                                            } 
-                        },
-        };
-        mercadopago.payment.create(payment_data).then ((data) => {
-        let linkPagamento = data.body.point_of_interaction.transaction_data.ticket_url
-        res.redirect(linkPagamento);
-        });
-        
-}
-      static async pagamentoCredito (req, res){
-       
-        var payment_data = {
-          transaction_amount: Number(req.body.transactionAmount),
-          token: req.body.token,
-          installments: Number(req.body.installments),
-          payment_method_id: req.body.paymentMethodId,
-          payer: {
-            email: req.body.email,
-          }
-        };
-
-        mercadopago.payment.create(payment_data).then((data) =>{
-            res.redirect(301, "/statusPedido");
-          })
-    
-
-      }
-
-      
-      static async statusPagamento (req,res){
-          const status = req.body.statusDoPagamento;
-          const num = req.body.numeroPedido;
-          console.log(num,status)
-          
-          await order.update({status_order:status},{
-            where:{
-              id_order:num
-            }
-          })
-          res.redirect("/admin/listaPedidos")
-      }
-  
-
-}
+    );
+    res.redirect('/admin/listaPedidos');
+  }
+};

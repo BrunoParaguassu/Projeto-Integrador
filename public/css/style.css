@@ -211,9 +211,9 @@ select {
  */
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -222,9 +222,9 @@ button,
  */
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -234,9 +234,9 @@ button::-moz-focus-inner,
  */
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -291,8 +291,8 @@ textarea {
  * 2. Remove the padding in IE 10.
  */
 
-[type="checkbox"],
-[type="radio"] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -303,8 +303,8 @@ textarea {
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -313,7 +313,7 @@ textarea {
  * 2. Correct the outline style in Safari.
  */
 
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -324,7 +324,7 @@ textarea {
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -398,7 +398,7 @@ a {
 body {
   min-width: 100%;
   font-family: inter;
-  background-image: url("/upload/img/retanguloazul.png");
+  background-image: url('/upload/img/retanguloazul.png');
 }
 
 img {
@@ -415,7 +415,7 @@ img {
 
 /* Inicio do cabeçalho*/
 .menu-principal__header {
-  background-image: url("/upload/img/cabecalhoamarelo.png");
+  background-image: url('/upload/img/cabecalhoamarelo.png');
   height: 60px;
 }
 
@@ -426,7 +426,7 @@ img {
 }
 
 .menu-principal__logo {
-  background-image: url("/upload/img/logo.png");
+  background-image: url('/upload/img/logo.png');
   background-repeat: no-repeat;
   text-indent: -9999px;
   width: 50px;
@@ -491,7 +491,7 @@ img {
 
 .hamburger::after,
 .hamburger::before {
-  content: " ";
+  content: ' ';
   display: block;
   width: 1.25rem;
   height: 0.125rem;
@@ -533,9 +533,8 @@ img {
 /* Inicio do cabeçalho ADM */
 
 .menu-principalAdm__header {
-  background-color: #FFDEAD;
+  background-color: #ffdead;
   height: 80px;
-
 }
 
 .menu-principal-conteiner__logo__adm {
@@ -557,7 +556,7 @@ img {
 /* Inicio do footer ADM */
 
 .footer-conteiner__endereco__adm {
-  background-color: #FFDEAD;
+  background-color: #ffdead;
   width: 100%;
   height: 170px;
 }
@@ -615,7 +614,7 @@ input {
 }
 
 .conteiner-escolhas__pagamentos {
-  background-image: url("/upload/img/figuratransparente.png");
+  background-image: url('/upload/img/figuratransparente.png');
   height: 220px;
   margin: 20px;
   background: rgba(13, 67, 96, 0.4);
@@ -644,7 +643,7 @@ input {
   text-align: center;
   width: 100%;
   height: 30px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
@@ -722,7 +721,7 @@ textarea {
   background: #ffffff;
   border-radius: 12px;
   text-align: center;
-  padding-top: .3em;
+  padding-top: 0.3em;
 }
 
 .conteiner-main__img {
@@ -734,7 +733,7 @@ textarea {
   text-align: center;
   width: 100%;
   height: 30px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
@@ -807,7 +806,7 @@ input {
   text-align: center;
   width: 100%;
   height: 56px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
@@ -834,9 +833,8 @@ input {
 
 /*Inicio do cadastroProduto*/
 .cadastro {
-  background-color: #FAF0E6;
+  background-color: #faf0e6;
   padding: 5%;
-
 }
 
 .cadastro-main__title {
@@ -844,13 +842,12 @@ input {
   text-align: center;
   width: 100%;
   height: 30px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
   line-height: 48px;
   color: black;
-
 }
 
 .cadastro__form {
@@ -858,7 +855,6 @@ input {
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-
 }
 
 .cadastro__label {
@@ -884,7 +880,7 @@ input {
 }
 
 .cadastro--btn {
-  background: #D62828;
+  background: #d62828;
   border-radius: 12px;
   font-family: 'Inter';
   font-style: normal;
@@ -892,11 +888,11 @@ input {
   font-size: 1.5em;
   /* or 120% */
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .cadastro--btn-back a {
-  color: black
+  color: black;
 }
 
 .cadastro--btn-back {
@@ -908,7 +904,7 @@ input {
   font-size: 1.8rem;
   /* or 120% */
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   border: black solid 1px;
   width: 30%;
   margin: 0 auto;
@@ -916,7 +912,6 @@ input {
 
 #cadastro__input-err {
   display: none;
-
 }
 
 #cadastro__input-err.visible {
@@ -928,7 +923,6 @@ input.invalid {
 }
 
 /* Fim do cadastro do produto */
-
 
 /* Página pedido-realizado*/
 
@@ -979,14 +973,14 @@ input.invalid {
 .c-status-btn {
   margin: 0;
   padding: 10px 20px;
-  background-color: #EAE2B7;
+  background-color: #eae2b7;
   font-size: 16px;
   border-radius: 25px;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .c-status-btn:hover {
-  background-color: #FCBF49;
+  background-color: #fcbf49;
 }
 
 .c-status-txt {
@@ -1007,7 +1001,6 @@ input.invalid {
   padding: 2px 5px 2px 10px;
   background-color: rgba(13, 67, 96, 0.4);
   color: white;
-
 }
 
 .c-server-option {
@@ -1022,7 +1015,6 @@ input.invalid {
 }
 
 .c-customer-request {
-
   background-color: white;
   border-radius: 12px;
   margin: 10px auto;
@@ -1033,7 +1025,6 @@ input.invalid {
   line-height: 28px;
   letter-spacing: 0em;
   text-align: center;
-
 }
 
 .l-container__payment h3 {
@@ -1090,7 +1081,7 @@ input.invalid {
   border-radius: 15px;
   width: 1%;
   height: 10px;
-  background-color: #FCBF49;
+  background-color: #fcbf49;
   text-align: center;
   line-height: 32px;
 }
@@ -1132,7 +1123,7 @@ input.invalid {
   font-weight: 400;
   font-size: 10px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0;
 }
 
@@ -1150,7 +1141,7 @@ input.invalid {
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .l-container__print-payment {
@@ -1167,7 +1158,7 @@ input.invalid {
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .c-btn_status {
@@ -1187,7 +1178,7 @@ input.invalid {
 }
 
 .cancel {
-  background: #D62828;
+  background: #d62828;
   color: white;
 }
 
@@ -1377,7 +1368,6 @@ img {
   grid-row: 2;
 }
 
-
 .button-cadastrar {
   background-color: red;
   border: none;
@@ -1389,7 +1379,6 @@ img {
 }
 
 /*Fim da Página Cadastro Usuário*/
-
 
 /* Início da Página de Recuperação de Senha*/
 img {
@@ -1411,7 +1400,7 @@ img {
   text-align: center;
 }
 
-.section-email{
+.section-email {
   display: grid;
   align-items: center;
   margin: auto;
@@ -1503,7 +1492,7 @@ img {
 
 /*Início do Footer*/
 .footer-conteiner__endereco {
-  background-image: url("/upload/img/footer.png");
+  background-image: url('/upload/img/footer.png');
   width: 100%;
   height: 170px;
 }
@@ -1536,7 +1525,7 @@ p {
 }
 
 .cadastro__btn a {
-  color: black
+  color: black;
 }
 
 .cadastro__btn {
@@ -1548,7 +1537,7 @@ p {
   font-size: 1.8rem;
   /* or 120% */
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   border: black solid 1px;
   width: 40%;
   margin: 0 auto;
@@ -1563,7 +1552,7 @@ p {
   justify-content: center;
   background-color: #003049;
   font-size: 24px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding-bottom: 25px;
 }
 
@@ -1603,13 +1592,14 @@ p {
   text-decoration: none;
   color: white;
   font-size: 1.4rem;
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .link__acesso:hover {
-  color: #FCBF49;
+  color: #fcbf49;
 }
-.acesso__label-checkbox,.acesso__campo__checkbox:hover{
+.acesso__label-checkbox,
+.acesso__campo__checkbox:hover {
   cursor: pointer;
 }
 
@@ -1661,10 +1651,10 @@ p {
 
 .l-feedback__avaliacao {
   text-align: center;
-  padding-top: 50px
+  padding-top: 50px;
 }
 
-.estrelas input[type=radio] {
+.estrelas input[type='radio'] {
   display: none;
 }
 
@@ -1674,12 +1664,11 @@ p {
 
 .estrelas label i.star__nota:before {
   content: '\2605';
-  color: #FC0;
+  color: #fc0;
 }
 
-.estrelas input[type=radio]:checked~label i.star__nota:before {
-  color: #CCC;
-
+.estrelas input[type='radio']:checked ~ label i.star__nota:before {
+  color: #ccc;
 }
 
 .feedback__comentario {
@@ -1693,7 +1682,7 @@ p {
   justify-content: center;
   border-radius: 25px;
   width: 90%;
-  background-color: #FCBF49;
+  background-color: #fcbf49;
   height: 500px;
   gap: 5px;
   margin: 0;
@@ -1703,13 +1692,13 @@ p {
 .story__titulo {
   width: 100%;
   text-align: center;
-  background-color: #D62828;
+  background-color: #d62828;
   font-size: 1.6rem;
   margin-top: 5px;
 }
 
 .l-container__story {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 95%;
   height: 600px;
   border-radius: 25px;
@@ -1739,7 +1728,6 @@ p {
 
 /*Fim página de feedback*/
 
-
 /* Inicio da lista de pedidos*/
 
 .andamentoPedidos {
@@ -1767,7 +1755,6 @@ p {
   background-color: red;
   font-weight: 600;
   border-radius: 5px;
-
 }
 
 /* Fim da lista de pedidos */
@@ -1775,7 +1762,6 @@ p {
 /* Inicio da lista de produtos*/
 
 .listaDePedidos {
-
   text-align: center;
 
   margin-bottom: 2em;
@@ -1790,13 +1776,11 @@ p {
 
 .listaDePedidos td {
   border: 1px solid black;
-
 }
 
 .listaDePedidos button {
   background-color: transparent;
   border: none;
-
 }
 
 /* Fim da lista de produtos */
@@ -1845,7 +1829,7 @@ p {
   max-width: 100%;
 }
 /*Cadastro Produto Variação de Preço box*/
-.c-variaton{
+.c-variaton {
   display: none;
 }
 /*Inicio Cardápio*/
@@ -1888,7 +1872,6 @@ p {
 }
 
 .item__pizza h5 {
-
   color: white;
   font-family: Inter;
   font-size: 20px;
@@ -1953,7 +1936,7 @@ p {
   width: 4em;
   height: 2em;
   border-radius: 10%;
-  color: #012D44;
+  color: #012d44;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1965,7 +1948,7 @@ p {
 }
 .btn-slice:hover {
   opacity: 0.7;
- cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-slice p {
@@ -1974,7 +1957,7 @@ p {
   padding: 0;
 }
 
-.container__info__pizza input[type=radio] {
+.container__info__pizza input[type='radio'] {
   display: none;
 }
 
@@ -1988,12 +1971,12 @@ p {
   }
 
   .menu-principal__header {
-    background-image: url("/upload/img/cabecalhoamarelo.png");
+    background-image: url('/upload/img/cabecalhoamarelo.png');
     height: 80px;
   }
 
   .menu-principal__logo {
-    background-image: url("/upload/img/logoprincipal65x65.png");
+    background-image: url('/upload/img/logoprincipal65x65.png');
     background-repeat: no-repeat;
     text-indent: -9999px;
     width: 65px;
@@ -2065,7 +2048,7 @@ p {
     height: 30px;
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 12px;
     text-align: center;
   }
@@ -2075,19 +2058,19 @@ p {
     width: 30%;
     height: 40px;
     color: #fff;
-    background: #D62828;
+    background: #d62828;
     border-radius: 12px;
     margin: 50px auto;
     border: none;
     cursor: pointer;
   }
 
-   .formulario__pagamento {
+  .formulario__pagamento {
     display: block;
     width: 30%;
     height: 40px;
     color: #fff;
-    background: #D62828;
+    background: #d62828;
     border-radius: 12px;
     margin: 50px auto;
     border: none;
@@ -2180,7 +2163,6 @@ p {
 }
 
 @media (min-width: 992px) {
-
   .menu-principal__links {
     display: flex;
     top: 20px;
@@ -2237,7 +2219,7 @@ p {
     height: 30px;
     border: 1px solid #000000;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 12px;
     text-align: center;
   }
@@ -2247,7 +2229,7 @@ p {
     width: 40%;
     height: 40px;
     color: #fff;
-    background: #D62828;
+    background: #d62828;
     border-radius: 12px;
     margin: 50px auto;
     border: none;
@@ -2263,19 +2245,18 @@ p {
   /*Inicio Cardapio*/
   .container__info__pizza {
     flex-direction: row;
-}
+  }
 
-.container__img__pizza {
+  .container__img__pizza {
     width: 20%;
     height: 20%;
-}
+  }
 
-.btn-slice {
+  .btn-slice {
     width: 10em;
     height: 4em;
-
-}
-/*Fim Cardapio*/
+  }
+  /*Fim Cardapio*/
 
   /*Início da Página Cadastro Usuário*/
   body {
@@ -2396,7 +2377,6 @@ p {
 }
 
 @media (min-width: 1200px) {
-
   .menu-principal__links {
     display: flex;
     top: 20px;
@@ -2432,7 +2412,6 @@ p {
   .menu-principal-lista__login {
     height: 40px;
     width: 40px;
-
   }
 
   .mini-conteiner__label__input {
@@ -2448,7 +2427,7 @@ p {
     width: 40%;
     height: 40px;
     color: #fff;
-    background: #D62828;
+    background: #d62828;
     border-radius: 12px;
     margin: 50px auto;
     border: none;
@@ -2468,10 +2447,8 @@ p {
     color: #000000;
   }
 
-
   .cadastro__form {
     display: flex;
-
   }
 
   .cadastro__box {
@@ -2479,14 +2456,13 @@ p {
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
   }
-  .c-variaton{
+  .c-variaton {
     display: none;
   }
 
   .cadastro__label {
     grid-row-start: 1;
     grid-column-start: 1;
-
   }
 
   .cadastro__input {
@@ -2523,7 +2499,7 @@ p {
   .l-container__status-pedido p {
     margin: 0;
     padding: 15px 40px;
-    line-height: 35px
+    line-height: 35px;
   }
 
   .c-status-btn {
@@ -2589,7 +2565,7 @@ p {
   }
 
   .l-container__delivery-problem p {
-    width: 500px
+    width: 500px;
   }
 
   .l-container__print-payment {
@@ -2620,11 +2596,9 @@ p {
     height: 30px;
     margin: 10px;
     width: 60%;
-
   }
 
   /* Fim da Página Status Pedido*/
-
 
   .menu-principal-conteiner__adm__login {
     position: absolute;
@@ -2643,79 +2617,79 @@ p {
   .myprogressBar {
     height: 35px;
   }
-
 }
 
 /*Estilização da pagina de acesso*/
 @media (min-width: 1200px) {
-  .section-email{
+  .section-email {
     margin: auto;
     width: 80%;
   }
 
-  .acesso__bts{
+  .acesso__bts {
     display: flex;
     flex-direction: row;
     width: 50%;
     gap: 10px;
   }
-.l-pagina__acesso{
-  height:100vh;
-  width: 100%;
-  margin: auto;
-  color: white;
-}
-.container__acesso{
-  width: 100%;
-  height: 720px;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #003049;
-  margin: auto;
-  font-size: 24px;
-}
-.acesso__campo{
-  height: 30px;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px;
-  font-size: 24px;
-}
-.acesso__campo:invalid{
-  border: 3px solid red;
-}
-.l-formulario__acesso{
-  display: flex;
-  flex-direction: column;
-  align-items:flex-start;
-  gap: 10px;
-  width: 40%;
-  /*height:600px;*/
-  background: rgba(13, 67, 96, 0.4); 
-  padding:15px ;
-}
-.acesso__label{
-  display: none;
-}
-.link__acesso{
-  color: white;
-}
-.acesso__label-checkbox,.acesso__campo__checkbox:hover{
-  cursor: pointer;
-}
-.acesso__campo__checkbox{
-  width: 20px;
-  height: 20px;
-}
-.l-acesso__checkbox{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.l-formulario__feedback{
+  .l-pagina__acesso {
+    height: 100vh;
+    width: 100%;
+    margin: auto;
+    color: white;
+  }
+  .container__acesso {
+    width: 100%;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #003049;
+    margin: auto;
+    font-size: 24px;
+  }
+  .acesso__campo {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px;
+    font-size: 24px;
+  }
+  .acesso__campo:invalid {
+    border: 3px solid red;
+  }
+  .l-formulario__acesso {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 40%;
+    /*height:600px;*/
+    background: rgba(13, 67, 96, 0.4);
+    padding: 15px;
+  }
+  .acesso__label {
+    display: none;
+  }
+  .link__acesso {
+    color: white;
+  }
+  .acesso__label-checkbox,
+  .acesso__campo__checkbox:hover {
+    cursor: pointer;
+  }
+  .acesso__campo__checkbox {
+    width: 20px;
+    height: 20px;
+  }
+  .l-acesso__checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .l-formulario__feedback {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2724,10 +2698,10 @@ p {
 
   .l-feedback__avaliacao {
     text-align: center;
-    padding-top: 50px
+    padding-top: 50px;
   }
 
-  .estrelas input[type=radio] {
+  .estrelas input[type='radio'] {
     display: none;
   }
 
@@ -2737,12 +2711,11 @@ p {
 
   .estrelas label i.star__nota:before {
     content: '\2605';
-    color: #FC0;
+    color: #fc0;
   }
 
-  .estrelas input[type=radio]:checked~label i.star__nota:before {
-    color: #CCC;
-
+  .estrelas input[type='radio']:checked ~ label i.star__nota:before {
+    color: #ccc;
   }
 
   .feedback__titulo {
@@ -2760,7 +2733,7 @@ p {
     justify-content: center;
     border-radius: 25px;
     width: 70%;
-    background-color: #FCBF49;
+    background-color: #fcbf49;
     height: 600px;
     gap: 15px;
     margin: 0;
@@ -2769,12 +2742,12 @@ p {
   .story__titulo {
     width: 100%;
     text-align: center;
-    background-color: #D62828;
+    background-color: #d62828;
     margin: 0;
   }
 
   .l-container__story {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     width: 95%;
     height: 500px;
     border-radius: 25px;
@@ -2784,7 +2757,6 @@ p {
 /* FIm página de feedback */
 
 @media print {
-
   header,
   footer {
     display: none;
@@ -2810,7 +2782,7 @@ p {
     justify-content: center;
     color: black;
     height: 3em;
-    background-image: url("../upload/img/Logo-pizza-thru.png");
+    background-image: url('../upload/img/Logo-pizza-thru.png');
     background-repeat: no-repeat;
     background-size: 10%;
   }
@@ -2839,7 +2811,6 @@ p {
     text-align: center;
     font-weight: lighter;
   }
-
 }
 
 /*Fim do @media*/

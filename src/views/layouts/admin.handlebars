@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} - Área Administrativa</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+</head>
+<body class="admin-layout">
+    <nav class="admin-nav">
+        <div class="logo">
+            <a href="/admin/dashboard">Pizza-Thru Admin</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/admin/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/admin/produtos"><i class="fas fa-pizza-slice"></i> Produtos</a></li>
+            <li><a href="/admin/pedidos"><i class="fas fa-clipboard-list"></i> Pedidos</a></li>
+            <li><a href="/admin/relatorios"><i class="fas fa-chart-bar"></i> Relatórios</a></li>
+        </ul>
+        <div class="user-info">
+            {{#if user}}
+                <span>Olá, {{user.name}}</span>
+                <a href="/logoutAdmin" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            {{/if}}
+        </div>
+    </nav>
+
+    <main class="admin-content">
+        {{#if messages.success}}
+            <div class="alert alert-success">{{messages.success}}</div>
+        {{/if}}
+        {{#if messages.error}}
+            <div class="alert alert-danger">{{messages.error}}</div>
+        {{/if}}
+
+        {{{body}}}
+    </main>
+
+    <footer class="admin-footer">
+        <p>&copy; 2024 Pizza-Thru - Área Administrativa</p>
+    </footer>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>
